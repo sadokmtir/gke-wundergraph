@@ -51,3 +51,13 @@ gcloud projects add-iam-policy-binding gke-autopilot-wunder \
 --role="roles/iam.serviceAccountUser" \
 --role="roles/resourcemanager.projectIamAdmin" \
 --role="roles/container.clusterAdmin" \
+
+### To get the full ssh command
+
+`gcloud compute ssh --tunnel-through-iap --zone=europe-west1-b --project=gke-autopilot-wunder --quiet --dry-run mgmt > connect.sh && chmod +x connect.sh`
+
+MANAGEMENT VM:
+
+sudo snap remove google-cloud-cli
+
+kubectl create router
