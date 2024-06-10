@@ -70,7 +70,7 @@ export SERVICE_ACCOUNT_EMAIL=serviceAccount:terraform@gke-autopilot-wunder.iam.g
 
 11. Get the full ssh command that you need to launch each time to create the IAP
     proxy enabling communicating with GKE:
-    `gcloud compute ssh mgmt --tunnel-through-iap --zone=$VM_ZONE --project=$PROJECT_NAME -- -L 8888:localhost:8888 -N -q -f > connect.sh && chmod +x connect.sh`
+    `gcloud compute ssh mgmt --tunnel-through-iap --zone=$VM_ZONE --project=$PROJECT_NAME --dry-run -- -L 8888:localhost:8888 -N -q -f > connect.sh && chmod +x connect.sh && echo export HTTPS_PROXY=localhost:8888 >> .connect.sh`
 
 12. Set-up the proxy for the helm and kubectl client:
     `export HTTPS_PROXY=localhost:8888`
