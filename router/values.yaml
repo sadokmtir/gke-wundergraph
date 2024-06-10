@@ -41,7 +41,7 @@ extraEnvVarsCM: ''
 # -- Name of existing Secret containing extra env vars
 extraEnvVarsSecret: ''
 
-domainName: &domain_name 'wundergaph-test.de'
+domainName: &domain_name 'wundergaph-test.com'
 domains: [*domain_name]
 sslPolicy: gke-ingress-ssl-policy-https
 

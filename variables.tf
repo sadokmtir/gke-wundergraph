@@ -84,7 +84,7 @@ variable "domain_name" {
   description = "DNS"
   type        = string
   nullable    = false
-  default     = "wundergaph-test.de"
+  default     = "wundergaph-test.com"
 }
 variable "dns_email" {
   description = "DNS email"

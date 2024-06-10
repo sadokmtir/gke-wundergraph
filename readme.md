@@ -68,12 +68,16 @@ export SERVICE_ACCOUNT_EMAIL=serviceAccount:terraform@gke-autopilot-wunder.iam.g
 10. Provison required tools for bastion vm using ansible:
     `cd ansible && ansible-playbook -v playbook.yaml`
 
-11. Get the full ssh command that you need to launch each time to create the IAP
-    proxy enabling communicating with GKE:
-    `gcloud compute ssh mgmt --tunnel-through-iap --zone=$VM_ZONE --project=$PROJECT_NAME --dry-run -- -L 8888:localhost:8888 -N -q -f > connect.sh && chmod +x connect.sh && echo export HTTPS_PROXY=localhost:8888 >> .connect.sh`
+11. Run command to download the kubernetes cluster config:
+    `gcloud container clusters get-credentials wundergaph-cluster --region $GOOGLE_REGION`
 
-12. Set-up the proxy for the helm and kubectl client:
-    `export HTTPS_PROXY=localhost:8888`
+12. Get the full ssh command that you need to launch each time to create the IAP
+    proxy enabling communicating with GKE:
+    `gcloud compute ssh mgmt --tunnel-through-iap --zone=$VM_ZONE --project=$PROJECT_NAME --dry-run -- -L 8888:localhost:8888 -N -q -f > connect.sh && chmod +x connect.sh && echo export HTTPS_PROXY=localhost:8888 >> connect.sh`
+
+    Otherwise run directly
+    `gcloud compute ssh mgmt --tunnel-through-iap --zone=$VM_ZONE --project=$PROJECT_NAME -- -L 8888:localhost:8888 -N -q -f`
+    and `export HTTPS_PROXY=localhost:8888`
 
 13. Create the namespace for deploying the wundergraph router:
     `kubectl create namespace router`
