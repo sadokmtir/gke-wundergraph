@@ -52,13 +52,13 @@ variable "mgmt_subnet_cidr_block" {
 variable "project_id" {
   description = "Project ID."
   type        = string
-  default     = "gke-autopilot-wunder"
+  nullable    = false
 }
 
 variable "region" {
   description = "Region."
   type        = string
-  default     = "europe-west1"
+  nullable    = false
 }
 
 variable "vpc_create" {

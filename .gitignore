@@ -2,3 +2,7 @@ terraform.tfstate
 terraform.tfstate.backup
 .terraform
 connect.sh
+ansible/gssh.sh
+ansible/vars
+terraform-private-key.json
+terraplan
