@@ -90,7 +90,7 @@ variable "dns_email" {
   description = "DNS email"
   type        = string
   nullable    = false
-  default     = "msadok53@gmail.com"
+  default     = "tets@gmail.com"
 }
 variable "dns_phone_number" {
   description = "DNS phone number"

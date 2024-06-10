@@ -2,7 +2,7 @@
 module "cluster" {
   source     = "./cloud-foundation-fabric/modules/gke-cluster-autopilot"
   project_id = module.project.project_id
-  name       = "cluster"
+  name       = "wundergaph-cluster"
   location   = var.region
   vpc_config = {
     network                  = module.vpc.self_link
@@ -12,8 +12,15 @@ module "cluster" {
     master_ipv4_cidr_block   = var.cluster_network_config.master_cidr_block
   }
   enable_features = {
-    autopilot = true
+    cost_management          = true
+    vertical_pod_autoscaling = true
   }
+
+  private_cluster_config = {
+    enable_private_endpoint = true
+    master_global_access    = false
+  }
+
   monitoring_config = {
     # (Optional) control plane metrics
     enable_api_server_metrics         = true
