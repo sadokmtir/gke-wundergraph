@@ -3,7 +3,7 @@ resource "local_file" "vars_file" {
     cluster    = module.cluster.name
     region     = var.region
     project_id = module.project.project_id
-    app_url    = local.urls["app"]
+    app_url    = "http://${local.urls["app"]}"
   })
   filename        = "${path.module}/ansible/vars/vars.yaml"
   file_permission = "0644"

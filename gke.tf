@@ -42,3 +42,9 @@ module "node_sa" {
   project_id = module.project.project_id
   name       = "sa-node"
 }
+
+resource "google_compute_ssl_policy" "gke_ingress_ssl_policy_https" {
+  name            = "gke-ingress-ssl-policy-https"
+  profile         = "MODERN"
+  min_tls_version = "TLS_1_2"
+}

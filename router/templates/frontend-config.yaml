@@ -1,8 +1,8 @@
 apiVersion: networking.gke.io/v1beta1
 kind: FrontendConfig
 metadata:
-  name: ingress-security-config
+  name: {{include "router.fullname" .}}-frontend-config
 spec:
-  sslPolicy: gke-ingress-ssl-policy-https
+  sslPolicy: {{ .Values.sslPolicy}}
   redirectToHttps:
     enabled: true

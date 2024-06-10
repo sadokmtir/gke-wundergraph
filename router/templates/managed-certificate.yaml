@@ -1,0 +1,9 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: {{include "router.fullname" .}}-certificates
+spec:
+  domains:
+    {{- with .Values.domains }}
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

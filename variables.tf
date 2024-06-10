@@ -80,3 +80,21 @@ variable "env" {
   nullable    = false
   default     = "dev"
 }
+variable "domain_name" {
+  description = "DNS"
+  type        = string
+  nullable    = false
+  default     = "wundergaph-test.de"
+}
+variable "dns_email" {
+  description = "DNS email"
+  type        = string
+  nullable    = false
+  default     = "msadok53@gmail.com"
+}
+variable "dns_phone_number" {
+  description = "DNS phone number"
+  type        = string
+  nullable    = false
+  default     = "+1 650-253-0000"
+}

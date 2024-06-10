@@ -1,6 +1,5 @@
 - gcloud projects create gke-autopilot-wunder
 - export GOOGLE_APPLICATION_CREDENTIALS=/path/to/terraform-private-key.json
-- expport GOOGLE_PROJECT=gke-autopilot-wunder
 - export GOOGLE_REGION=europe-west3
 - gcloud iam service-accounts create terraform
 
@@ -51,6 +50,7 @@ gcloud projects add-iam-policy-binding gke-autopilot-wunder \
 --role="roles/iam.serviceAccountUser" \
 --role="roles/resourcemanager.projectIamAdmin" \
 --role="roles/container.clusterAdmin" \
+--role="roles/dns.admin"
 
 ### To get the full ssh command
 
@@ -60,4 +60,9 @@ MANAGEMENT VM:
 
 sudo snap remove google-cloud-cli
 
-kubectl create router
+kubectl create namespace router
+
+#Create DNS:
+
+gcloud domains registrations search-domains
+gcloud domains registrations register wundergaph-test.de
