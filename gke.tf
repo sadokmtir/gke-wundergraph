@@ -48,6 +48,13 @@ module "node_sa" {
   source     = "./cloud-foundation-fabric/modules/iam-service-account"
   project_id = module.project.project_id
   name       = "sa-node"
+  iam_project_roles = {
+    "${module.project.project_id}" = [
+      "roles/artifactregistry.reader",
+    ]
+  }
+
+
 }
 
 resource "google_compute_ssl_policy" "gke_ingress_ssl_policy_https" {

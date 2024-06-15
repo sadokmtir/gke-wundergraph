@@ -102,6 +102,10 @@ run `gcloud compute network-endpoint-groups list` and for each NEG listed, run
 `gcloud compute network-endpoint-groups delete NAME --zone ZONE` and run again
 `terraform destroy` to delete the rest of the infrastructure.
 
-```
+Deploy two subgraphs for testing
 
+```
+helm upgrade employees --install --atomic --wait  ./subgraphs/employees
+
+helm upgrade family --install --atomic --wait  ./subgraphs/family
 ```

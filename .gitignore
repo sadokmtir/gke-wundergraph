@@ -6,3 +6,4 @@ ansible/gssh.sh
 ansible/vars
 terraform-private-key.json
 terraplan
+.DS_Store
